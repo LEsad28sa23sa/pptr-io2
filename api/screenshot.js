@@ -12,7 +12,7 @@ module.exports = async (req, res) => {
     const fileType = ALLOWED_FILE_TYPES.includes(screenshotFileType) ? screenshotFileType : "png";
 
     const browser = await puppeteer.launch({
-      args: [...chrome.args, "--hide-scrollbars", "--disable-web-security"],
+      args: [...chrome.args, "--hide-scrollbars", "--disable-web-security", "--disable-extensions"],
       defaultViewport: chrome.defaultViewport,
       executablePath: await chrome.executablePath,
       ignoreHTTPSErrors: true,
